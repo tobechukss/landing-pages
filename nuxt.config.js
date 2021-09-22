@@ -37,7 +37,17 @@ export default {
     'bootstrap-vue/nuxt',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+
+    '@nuxtjs/style-resources'
   ],
+
+  styleResources: {
+    scss: [
+      '~/node_modules/~gradely_asset_store/src/basic_scss/_colors.scss',
+      '~/node_modules/gradely_asset_store/src/basic_scss/_breakpoints.scss',
+      '~/node_modules/gradely_asset_store/src/basic_scss/_mixins.scss',
+    ]
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
