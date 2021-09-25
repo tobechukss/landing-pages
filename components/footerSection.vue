@@ -74,7 +74,7 @@
 
 <script>
 export default {
-  name: "footer",
+  name: "footerSection",
 };
 </script>
 

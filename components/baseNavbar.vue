@@ -41,7 +41,7 @@
         
 
         <!-- LOGIN BUTTON -->
-        <a :href="loginRoute" class="btn btn-accent">
+        <a  class="btn btn-accent">
           Log In
         </a>
 
