@@ -49,7 +49,7 @@
         <div
           @click="toggleMobileBlock"
         
-          class="menu-icon font-weight-500 pointer"
+          class="menu-icon font-weight-500 pointer white-text"
           :class="show_mobile_block ? closeStyle : 'icon-hamburger'"
         ></div>
       </div>

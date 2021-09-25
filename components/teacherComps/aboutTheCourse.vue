@@ -44,7 +44,7 @@
        
 
         <!-- VIDEO INTRO -->
-        <div class="col-12 col-md-6 m-auto mgb-30">
+        <div class="col-12 col-md-6 m-auto ">
           <div class="video-intro position-relative">
             <img
               v-lazy="require('@/assets/static/teacherVideo.svg')"
