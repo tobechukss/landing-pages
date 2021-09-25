@@ -1,0 +1,109 @@
+<template>
+  <div class="about-course white-text">
+    
+    <div class="gradely-container">
+      <div class="course-text">
+        <div class="title font-weight-600 mgb-30">
+          About the Course
+        </div>
+        <div class="course-description mgb-20">
+          The Teachers’ Academy Course is a certified intensive 4-week training
+          for all Nursery, Primary and Secondary School teachers to master the
+          creation of personalized learning designs and use hybrid teaching
+          methodologies to achieve student mastery. At the end of the course, we
+          will have filled the existing gaps between traditional teaching
+          methods and the modern technology enabled personalised teaching
+          methods.
+          <br />
+          <br />
+          The course is fully online and covers one month of practical and
+          virtual classes across six topical areas. It will be ongoing for 4
+          weeks and all enrolled participants will retain access to the course
+          content for 6 months after the course ends (until March 2022).
+        </div>
+
+        <button class="btn btn-accent">
+            Enroll
+        </button>
+      </div>
+      <div class="course-video">
+          <img
+            v-lazy="require('@/assets/static/teacherVideo.svg')"
+            alt=""
+            class="teacher"
+          />
+           <!-- PLAY BUTTON -->
+            <img
+               v-lazy="require('@/assets/static/playBtn.svg')"
+              alt=""
+              class="index-9 play-btn pointer"
+              @click="toggleModal"
+            />
+      </div>
+    </div>
+    <portal to="gradely-modals">
+      <transition name="fade" v-if="show_modal">
+        <intro-video-modal @closeTriggered="toggleModal" />
+      </transition>
+    </portal>
+  </div>
+</template>
+<script>
+import introVideoModal from '~/components/teacherComps/introVideoModal'
+
+export default {
+  components: {
+    introVideoModal
+  },
+  data() {
+    return {
+      show_modal: false,
+    };
+  },
+
+  methods: {
+    toggleModal() {
+      this.show_modal = !this.show_modal;
+    },
+  },
+};
+</script>
+<style lang="scss" scoped>
+.about-course {
+     margin-bottom: toRem(70);
+    .gradely-container {
+         @include flex-row-between-wrap;
+        .course-text {
+            max-width: toRem(617);
+            @include breakpoint-down(xl) {
+              order: 2;
+              max-width: toRem(470);
+              padding-left: toRem(30);
+          }
+            .title {
+                @include font-height(30, 42)
+            }
+        }
+        .course-video {
+            
+             margin-bottom: toRem(20);
+          @include breakpoint-down(xl) {
+              order: 1;
+               
+          }
+          @include breakpoint-down(sm) {
+              margin-bottom: toRem(60);
+          }
+  .play-btn {
+     position: absolute;
+     right: toRem(440);
+    
+    }
+          .teacher{
+            width: 100%;
+          }
+        
+        }
+    }
+}
+</style>

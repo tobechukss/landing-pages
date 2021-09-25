@@ -10,6 +10,7 @@
         <h2 class="blu text-2xl leading-7 font-semibold brand-accent">
           Welcome to your Nuxt Application
         </h2>
+        
         <p class="mt-3 text-gray-600">
           We recommend you take a look at the <a href="https://nuxtjs.org" target="_blank" class="text-green-500 hover:underline">Nuxt documentation</a>, whether you are new or have previous experience with the framework.<br>
         </p>
@@ -44,6 +45,12 @@
     </div>
   </div>
 </template>
+<script>
+
+export default {
+  
+}
+</script>
 <style lang="scss" scoped>
 .blu {
   @include font-height(32,43)

@@ -18,10 +18,13 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '~/node_modules/gradely_asset_store/dist/css/app.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    {src: '~/plugins/vue-lazyload', ssr:false},
+  
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -43,7 +46,7 @@ export default {
 
   styleResources: {
     scss: [
-      '~/node_modules/~gradely_asset_store/src/basic_scss/_colors.scss',
+      '~/node_modules/gradely_asset_store/src/basic_scss/_colors.scss',
       '~/node_modules/gradely_asset_store/src/basic_scss/_breakpoints.scss',
       '~/node_modules/gradely_asset_store/src/basic_scss/_mixins.scss',
     ]
