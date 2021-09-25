@@ -57,14 +57,39 @@
     </div>
      <div class=" m-auto text-center color-white mgt-10">
       Requirement: Your school must have been in existence for two years or more.
-      <button class="btn btn-accent m-auto mgt-20">
+      <button @click="toggleEnrollModal" class="btn btn-accent m-auto mgt-20">
           Enroll
         </button>
     </div>
+
+     <portal to="gradely-modals">
+      <transition name="fade" v-if="show_enroll_modal">
+        <enroll-modal @closeTriggered="toggleEnrollModal" />
+      </transition>
+    </portal>
+
   </div>
 </template>
 <script>
-export default {};
+import EnrollModal from '~/components/teacherComps/enrollModal.vue'
+export default {
+  components: {
+
+    EnrollModal,
+  },
+    data() {
+    return {
+   
+       show_enroll_modal: false,
+    };
+  },
+
+  methods: {
+     toggleEnrollModal() {
+      this.show_enroll_modal = !this.show_enroll_modal;
+    },
+  }
+};
 </script>
 <style lang="scss" scoped>
 .course-features {

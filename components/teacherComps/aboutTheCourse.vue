@@ -28,7 +28,7 @@
           virtual classes across six topical areas. It will be ongoing for 4
           weeks and all enrolled participants will retain access to the course
           content for 6 months after the course ends (until March 2022).
-    =
+    
             </div>
 
             <!-- ENROLL BUTTON -->
@@ -44,7 +44,7 @@
        
 
         <!-- VIDEO INTRO -->
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-6 m-auto mgb-30">
           <div class="video-intro position-relative">
             <img
               v-lazy="require('@/assets/static/teacherVideo.svg')"
@@ -59,6 +59,7 @@
               @click="toggleModal"
             />
           </div>
+          
         </div>
       </div>
     </div>
@@ -179,7 +180,7 @@ export default {
   .text-wrapper {
 
     padding-left: toRem(35);
-
+    
     @include breakpoint-down(lg) {
       padding-left: toRem(20);
     }

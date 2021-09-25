@@ -11,7 +11,10 @@
     <template slot="modal-cover-body">
       <div class="modal-cover-body">
         <div class="video-block w-100 h-100">
-         <div class="title">
+            <div class="font-weight-600 brand-tonic text-center m-auto mgt-30">
+                One more Step
+            </div>
+         <div class="title brand-navy text-center m-auto">
              Create a Gradely teacher account to confirm your enrollment
          </div>
           <div class="form">
@@ -37,10 +40,11 @@
                   Email Address
                 </label>
                 <input
-                  type="text"
+                  type="email"
+                  v-model="form.email"
                   required
                   class="form-control"
-                  placeholder="Enter your first & Last name"
+                  placeholder="Enter your email address"
                 />
               </div>
               <div class="form-group">
@@ -51,11 +55,36 @@
                 </label>
                 <input
                   type="tel"
+                  v-model="form.phone"
                   required
                   class="form-control"
                   placeholder="+ 234   |    Enter phone number"
                 />
               </div>
+
+     
+
+         <div class="form-group">
+          <label
+            class="form-title control-label text-uppercase font-weight-700 mgb-5"
+          >
+            Password
+          </label>
+          <div class="password">
+            <input
+              :type="passwordFieldType"
+              v-model="form.password"
+              required
+              class="show form-control "
+              placeholder="Enter your Password"
+            />
+            <img
+              v-lazy="require('@/assets/static/Show.svg')"
+              class="eye"
+              @click="switchVisibility"
+            />
+          </div>
+        </div>
 
               <div class="form-group">
                 <label
@@ -65,6 +94,7 @@
                 </label>
                 <input
                   type="text"
+                  v-model="form.school"
                   required
                   class="form-control"
                   placeholder="Enter the name of your school"
@@ -84,10 +114,18 @@
                 </select>
               </div>
 
-              <button class="btn btn-accent">Enroll</button>
+              <button :disabled="isDisabled" class="btn btn-accent m-auto"  @click="toggleSuccessModal"
+            >Create Account</button>
             </form>
+
+            <div class="log-in brand-black text-center m-auto mgt-20 ">Already have an account? <a href="https://app.gradely.ng/login" class="brand-accent mgb-20">Log In now</a></div>
           </div>
         </div>
+        <portal to="gradely-modals">
+      <transition name="fade" v-if="show_success_modal">
+        <success-modal @closeTriggered="toggleSuccessModal" />
+      </transition>
+    </portal>
       </div>
     </template>
 
@@ -98,16 +136,37 @@
 
 <script>
 import modalCover from "~/components/teacherComps/modalCover";
+import successModal from '~/components/teacherComps/successModal'
 
 export default {
   name: "enrollModal",
 
   components: {
-    modalCover
+    modalCover,
+    successModal
   },
-
+  
+    methods: {
+         switchVisibility() {
+      this.passwordFieldType =
+        this.passwordFieldType === "password" ? "text" : "password";
+    },
+     toggleSuccessModal() {
+      this.show_success_modal = !this.show_success_modal;
+     }
+    },
   data() {
     return {
+         password: "",
+      passwordFieldType: "password",
+
+      form: {
+        name:"",
+        phone:"",
+        email: "",
+        password: "",
+        company: ""
+      },
       selected: "A",
       options: [
         { text: "Teacher", value: "A" },
@@ -127,16 +186,33 @@ export default {
 
 <style lang="scss" scoped>
 .modal-cover-body {
-  height: 70vh;
-  max-height: 70vh;
+  height: 90vh;
+  max-height: 90vh;
 
   @include breakpoint-down(xs) {
-    height: 55vh;
-    max-height: 55vh;
+    height: 70vh;
+    max-height: 70vh;
   }
 
+.form-group {
+      .password {
+        width: 100%;
+        display: flex;
+
+        input {
+          width: 100%;
+        }
+
+        .eye {
+          margin-left: toRem(-40);
+          z-index: 2;
+          cursor: pointer;
+        }
+      }
+}
   .title {
-      @include font-height(16, 22);
+      @include font-height(22, 32);
+      max-width: toRem(370);
   }
 }
 </style>

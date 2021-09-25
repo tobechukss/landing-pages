@@ -19,9 +19,10 @@
     </div>
   
 
-      <button class="btn btn-accent m-auto mgt-30">
+     <a href="https://app.gradely.ng/signup/lander">
+    <button class="btn btn-accent m-auto mgt-30">
         Sign Up
-      </button>
+      </button> </a> 
     </div>
    
   </div>

@@ -77,14 +77,36 @@
 
            
         </div>
-         <button class="btn btn-accent m-auto">
+         <button @click="toggleEnrollModal" class="btn btn-accent m-auto">
                 Enroll
             </button>
+             <portal to="gradely-modals">
+      <transition name="fade" v-if="show_enroll_modal">
+        <enroll-modal @closeTriggered="toggleEnrollModal" />
+      </transition>
+    </portal>
+
     </div>
 </template>
 <script>
+import EnrollModal from '~/components/teacherComps/enrollModal.vue'
 export default {
-    
+    components: {
+
+    EnrollModal,
+  },
+    data() {
+    return {
+   
+       show_enroll_modal: false,
+    };
+  },
+
+  methods: {
+     toggleEnrollModal() {
+      this.show_enroll_modal = !this.show_enroll_modal;
+    },
+  }
 }
 </script>
 <style lang="scss" scoped>

@@ -21,7 +21,7 @@
 
             <!-- DROPDOWN  -->
             <div
-              class="dropdown-block white-text-bg box-shadow-effect rounded-5 smooth-transition smooth-animation"
+              class="dropdown-block brand-navy-bg box-shadow-effect rounded-5 smooth-transition smooth-animation"
               v-if="show_dropdown"
             >
               <a href="https://gradely.ng/about" class="item">About Us</a>
@@ -71,7 +71,7 @@
         >
           More
           <span
-            class="icon icon-caret-down position-relative gfont-13 mgl-10 color-ash"
+            class="icon icon-caret-down position-relative gfont-13 mgl-10 brand-accent-light"
             style="top: 0.5px"
           ></span>
 
@@ -99,6 +99,13 @@
 
 export default {
   name: "teacherNav",
+
+   computed: {
+    closeStyle() {
+      return "icon-decline font-weight-500 brand-red";
+    },
+
+  },
 
    
 
@@ -175,7 +182,7 @@ export default {
 
           .icon {
             @include center-y;
-            color: $color-ash;
+            color: $white-text;
             font-weight: 500;
             margin-top: toRem(1);
             font-size: toRem(10);
