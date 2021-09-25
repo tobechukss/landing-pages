@@ -4,7 +4,7 @@
   >
     <!-- HERO SECTION -->
     <div class="gradely-container px-3 mx-auto position-relative">
-      <div class="footer text-content h-100">
+      <div class="foot text-content h-100">
         <img
            v-lazy="require('@/assets/static/logoMark.svg')"
           alt="Gradely"
@@ -79,7 +79,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.footer {
+.foot {
   @include flex-row-between-nowrap;
   align-items: flex-start;
   padding-top: toRem(40);

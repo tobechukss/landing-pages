@@ -8,7 +8,7 @@
 
       <!-- NAVIGATION BLOCK  -->
       <div class="navigation-block">
-        <div class="nav-items" v-if="!isCoursePage">
+        <div class="nav-items">
           <a href="https://gradely.ng/for-parent" class="nav">For Parents</a>
           <a href="https://gradely.ng/for-schools" class="nav">For Schools</a>
 
@@ -41,7 +41,7 @@
         
 
         <!-- LOGIN BUTTON -->
-        <a :href="loginRoute" class="btn btn-accent" v-else>
+        <a :href="loginRoute" class="btn btn-accent">
           Log In
         </a>
 
