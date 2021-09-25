@@ -71,6 +71,7 @@ export default {};
 </script>
 <style lang="scss" scoped>
 .how-it-works {
+  margin-bottom: toRem(70);
   .title {
       @include font-height(32,44);
   }
@@ -98,8 +99,11 @@ export default {};
           margin-top: toRem(18);
       }
     }
+    .working-title {
+      height: toReem(40);
+    }
     .explain {
-        @include font-height(12, 18);
+        @include font-height(14, 18);
     }
   }
   }

@@ -27,6 +27,7 @@
                 </label>
                 <input
                   type="text"
+                  v-model="form.name"
                   required
                   class="form-control"
                   placeholder="Enter your first & Last name"
@@ -126,6 +127,8 @@
         <success-modal @closeTriggered="toggleSuccessModal" />
       </transition>
     </portal>
+
+
       </div>
     </template>
 
@@ -137,35 +140,31 @@
 <script>
 import modalCover from "~/components/teacherComps/modalCover";
 import successModal from '~/components/teacherComps/successModal'
-
 export default {
   name: "enrollModal",
-
   components: {
     modalCover,
-    successModal
-  },
+    successModal,
   
-    methods: {
-         switchVisibility() {
-      this.passwordFieldType =
-        this.passwordFieldType === "password" ? "text" : "password";
+  },
+    computed: {
+    isDisabled() {
+      if (this.form.email && this.form.password && this.form.school && this.form.phone && this.form.name) return false;
+      else return true;
     },
-     toggleSuccessModal() {
-      this.show_success_modal = !this.show_success_modal;
-     }
-    },
-  data() {
+  },
+   data() {
     return {
+       show_success_modal: false,
+  
          password: "",
       passwordFieldType: "password",
-
       form: {
         name:"",
         phone:"",
         email: "",
         password: "",
-        company: ""
+        school: ""
       },
       selected: "A",
       options: [
@@ -180,7 +179,19 @@ export default {
         background: "white-text-bg"
       }
     };
-  }
+  },
+  
+    methods: {
+         switchVisibility() {
+      this.passwordFieldType =
+        this.passwordFieldType === "password" ? "text" : "password";
+    },
+     toggleSuccessModal() {
+      this.show_success_modal = !this.show_success_modal;
+     
+     }
+    },
+ 
 };
 </script>
 
@@ -188,21 +199,17 @@ export default {
 .modal-cover-body {
   height: 90vh;
   max-height: 90vh;
-
   @include breakpoint-down(xs) {
     height: 70vh;
     max-height: 70vh;
   }
-
 .form-group {
       .password {
         width: 100%;
         display: flex;
-
         input {
           width: 100%;
         }
-
         .eye {
           margin-left: toRem(-40);
           z-index: 2;

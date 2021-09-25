@@ -128,7 +128,7 @@ export default {
                 @include font-height(16,22);
             }
             .partner-role {
-                @include font-height(12,18);
+                @include font-height(16,18);
             }
 
             .partner-image {

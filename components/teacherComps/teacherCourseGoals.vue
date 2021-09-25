@@ -11,7 +11,7 @@
             alt=""
             class="avatar-sm"
           />
-          <div class="white-text mgl-20">
+          <div class="course white-text mgl-20">
               Build quality lesson designs and lesson plans for effective teaching
           </div>
         </div>
@@ -21,7 +21,7 @@
             alt=""
             class="avatar-sm"
           />
-          <div class="white-text mgl-20">
+          <div class="course white-text mgl-20">
              Track and analyze students’ mastery with adequate tools
 
           </div>
@@ -33,7 +33,7 @@
             alt=""
             class="avatar-sm"
           />
-          <div class="white-text mgl-20">
+          <div class="course white-text mgl-20">
              Monitor and enable independent and personalized learning for your students.
 
           </div>
@@ -45,7 +45,7 @@
             alt=""
             class="avatar-sm"
           />
-          <div class="white-text mgl-20">
+          <div class="course white-text mgl-20">
            Use remedial classes to maximize mastery learning
 
           </div>
@@ -92,6 +92,9 @@ export default {};
           }
           .goals {
           max-width: toRem(450);
+          .course {
+            @include font-height(18, 22)
+          }
           
       }
       }

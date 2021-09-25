@@ -86,23 +86,18 @@
 <script>
 import introVideoModal from '~/components/teacherComps/introVideoModal.vue'
 import EnrollModal from '~/components/teacherComps/enrollModal.vue'
-
-
 export default {
   name: "aboutTheCoure",
-
   components: {
     introVideoModal,
     EnrollModal,
   },
-
   data() {
     return {
       show_modal: false,
        show_enroll_modal: false,
     };
   },
-
   methods: {
     toggleModal() {
       this.show_modal = !this.show_modal;
@@ -117,141 +112,111 @@ export default {
 <style lang="scss" scoped>
 .intro-content {
   margin-bottom: toRem(60);
-
   .video-intro {
     height: toRem(312);
     width: toRem(468);
     
-
     @include breakpoint-down(xl) {
       height: toRem(312);
+      
     }
-
     @include breakpoint-down(lg) {
       height: toRem(312);
     
     }
-
     @include breakpoint-custom-down(860) {
-      height: toRem(312s);
+      height: toRem(300);
     
     }
-
     @include breakpoint-down(md) {
       order: 2;
-      height: toRem(312);
+      height: toRem(270);
+      width: 100%;
     }
-
     @include breakpoint-down(sm) {
-      height: toRem(320);
+      height: toRem(270);
     }
-
     @include breakpoint-down(xs) {
-      height: toRem(280);
+      height: toRem(270);
     }
-
     .play-btn {
       @include breakpoint-down(xl) {
         @include square-shape(80);
       }
-
       @include breakpoint-down(lg) {
         @include square-shape(70);
       }
-
       @include breakpoint-down(sm) {
         @include square-shape(60);
       }
-
       @include breakpoint-down(xs) {
         @include square-shape(50);
       }
     }
-
     .girl-grass {
       @include background-cover;
     }
-
     .play-btn {
       @include center-placement;
     }
   }
-
   .text-wrapper {
-
     padding-left: toRem(35);
     
     @include breakpoint-down(lg) {
       padding-left: toRem(20);
     }
-
     @include breakpoint-down(md) {
       order: 1;
       margin-top: toRem(35);
     }
-
     @include breakpoint-down(sm) {
       margin-top: toRem(22);
     }
-
     @include breakpoint-down(xs) {
       margin-top: toRem(24);
     }
   }
-
   .text-intro {
     @include flex-column-start-start;
     justify-content: center;
     align-items: flex-start;
-
     .title-text {
       @include font-height(31, 42);
-
       @include breakpoint-down(xl) {
         @include font-height(28, 38);
       }
-
       @include breakpoint-down(lg) {
         @include font-height(24, 32);
       }
-
       @include breakpoint-down(md) {
         @include font-height(25, 30);
       }
-
       @include breakpoint-down(sm) {
         @include font-height(23, 28);
       }
-
       @include breakpoint-down(xs) {
         @include font-height(21, 26);
       }
     }
-
     .meta-text {
       @include font-height(17, 26);
-
       @include breakpoint-down(xl) {
         @include font-height(15, 22);
       }
-
       @include breakpoint-down(lg) {
         @include font-height(14, 21);
       }
-
       @include breakpoint-down(md) {
         @include font-height(15.5, 24);
       }
-
       @include breakpoint-down(sm) {
         @include font-height(15.25, 25);
       }
-
       @include breakpoint-down(xs) {
         @include font-height(13, 21.5);
       }
     }
-
     .btn {
       @include breakpoint-down(lg) {
         padding: toRem(11) toRem(24);
