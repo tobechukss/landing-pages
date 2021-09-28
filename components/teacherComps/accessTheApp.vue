@@ -46,7 +46,7 @@ export default {
         }
         .dashboard {
             .dashboard-image {
-                width: 100%;
+                width: 80%;
             }
         }
         

@@ -41,7 +41,7 @@
         
 
         <!-- LOGIN BUTTON -->
-        <a  class="btn btn-accent">
+        <a href="https://app.gradely.ng/login" class="btn btn-accent">
           Log In
         </a>
 
