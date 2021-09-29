@@ -1,8 +1,6 @@
 <template>
   <div class="teacher-hero  position-relative">
- 
     <div class="contain position-relative">
-      
       <div class="text-content h-100">
         <!-- TITLE TEXT -->
         <div class="title-text mgb-25 white-text text-capitalize">
@@ -13,7 +11,7 @@
             class="underline"
           />
         </div>
-         
+
         <!-- META TEXT -->
         <div class="meta-text mgb-40 font-weight-400 white-text">
           A certified 4-week training course for all Nursery, Primary and
@@ -30,29 +28,27 @@
         </div>
 
         <div class="d-flex">
-           <div class="naira d-flex">
-          <img
-            v-lazy="require('@/assets/static/naira.svg')"
-            alt=""
-            class="index-9"
-          />
+          <div class="naira d-flex">
+            <img
+              v-lazy="require('@/assets/static/naira.svg')"
+              alt=""
+              class="index-9"
+            />
 
-          <div class="course-fee white-text">
-            <div class="font-weight-600 mgb-5">
-              Course Fee
-            </div>
+            <div class="course-fee white-text">
+              <div class="font-weight-600 mgb-5">
+                Course Fee
+              </div>
 
-            <div class="font-weight-600">
-              N10,500/teacher
+              <div class="font-weight-600">
+                N10,500/teacher
+              </div>
             </div>
           </div>
+          <button class="btn btn-accent" @click="toggleRegisterModal">
+            Enroll
+          </button>
         </div>
-        <button class="btn btn-accent"   @click="toggleEnrollModal">
-          Enroll
-        </button>
-
-        </div>
-       
 
         <div class="date font-weight-600 white-text">
           <br />
@@ -61,8 +57,6 @@
           <br />
           <br />
         </div>
-
-        
       </div>
 
       <div class="image-block">
@@ -73,35 +67,33 @@
         />
       </div>
     </div>
+    <!-- MODALS  -->
+    
 
-     <portal to="gradely-modals">
-      <transition name="fade" v-if="show_enroll_modal">
-        <enroll-modal @closeTriggered="toggleEnrollModal" />
+    <portal to="gradely-modals">
+      <transition name="fade" v-if="show_register_modal">
+        <register-modal @closeTriggered="toggleRegisterModal" />
       </transition>
     </portal>
   </div>
 </template>
 <script>
-import EnrollModal from '~/components/teacherComps/enrollModal.vue'
+import RegisterModal from "~/components/teacherComps/registerModal.vue";
 export default {
-
-components: {
-
-    EnrollModal,
+  components: {
+    RegisterModal
   },
-    data() {
+  data() {
     return {
-   
-       show_enroll_modal: false,
+      show_register_modal: false
     };
   },
 
   methods: {
-     toggleEnrollModal() {
-      this.show_enroll_modal = !this.show_enroll_modal;
-    },
+    toggleRegisterModal() {
+      this.show_register_modal = !this.show_register_modal;
+    }
   }
-   
 };
 </script>
 <style lang="scss" scoped>
@@ -110,17 +102,15 @@ components: {
 
   margin-bottom: toRem(240);
 
-
-
   .contain {
-     background: linear-gradient(
-    105deg,
-    rgba(144, 57, 57, 0.3) 0%,
-    rgba(8, 28, 50, 1) 35%,
-    rgba(8, 28, 50, 1) 75%,
-    rgba(8, 28, 50, 1) 90%,
-   rgba(57, 139, 144, 0.3) 100%,
-  );
+    background: linear-gradient(
+      105deg,
+      rgba(144, 57, 57, 0.3) 0%,
+      rgba(8, 28, 50, 1) 35%,
+      rgba(8, 28, 50, 1) 75%,
+      rgba(8, 28, 50, 1) 90%,
+      rgba(57, 139, 144, 0.3) 100%
+    );
     @include flex-row-between-nowrap;
 
     @include breakpoint-down(md) {
@@ -150,34 +140,34 @@ components: {
         font-weight: 700;
         max-width: toRem(566);
         .underline {
-         left: toRem(170);
+          left: toRem(170);
           position: absolute;
           @include breakpoint-custom-down(1539) {
-            top: toRem(140)
+            top: toRem(140);
           }
           @include breakpoint-custom-down(1472) {
-            top: toRem(125)
+            top: toRem(125);
           }
           @include breakpoint-custom-down(1420) {
-            top: toRem(100)
+            top: toRem(100);
           }
           @include breakpoint-custom-down(1360) {
-            top: toRem(70)
+            top: toRem(70);
           }
           @include breakpoint-custom-down(1200) {
             top: toRem(170);
             left: toRem(50);
-            width: toRem(300)
+            width: toRem(300);
           }
           @include breakpoint-custom-down(576) {
             top: toRem(50);
             left: toRem(10);
-            width: toRem(220)
+            width: toRem(220);
           }
           @include breakpoint-custom-down(332) {
             top: toRem(40);
             left: toRem(10);
-            width: toRem(220)
+            width: toRem(220);
           }
         }
 
@@ -212,19 +202,15 @@ components: {
 
         @include breakpoint-down(xl) {
           @include font-height(18, 27);
-          
         }
 
-       
         @include breakpoint-down(sm) {
           @include font-height(17, 27);
-         
         }
 
         @include breakpoint-down(xs) {
           @include font-height(14, 25);
-           max-width: toRem(220);
-
+          max-width: toRem(220);
         }
         .arrow {
           margin-top: toRem(-50);
@@ -232,20 +218,18 @@ components: {
             margin-top: toRem(-110);
             margin-left: toRem(340);
           }
-           @include breakpoint-custom-down(818) {
-           
+          @include breakpoint-custom-down(818) {
             margin-left: toRem(340);
             width: toRem(60);
           }
-            @include breakpoint-down(xs) {
-           
+          @include breakpoint-down(xs) {
             margin-left: toRem(200);
             padding-top: toRem(0);
             width: toRem(40);
           }
           @include breakpoint-custom-down(326) {
-          margin-left: toRem(200);
-          padding-top: toRem(0);
+            margin-left: toRem(200);
+            padding-top: toRem(0);
           }
         }
       }

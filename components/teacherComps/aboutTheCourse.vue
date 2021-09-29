@@ -34,7 +34,7 @@
             <!-- ENROLL BUTTON -->
             <button
               class="btn btn-accent"
-             @click="toggleEnrollModal"
+             @click="toggleRegisterModal"
             >
               Enroll
             </button>
@@ -72,8 +72,8 @@
     </portal>
 
     <portal to="gradely-modals">
-      <transition name="fade" v-if="show_enroll_modal">
-        <enroll-modal @closeTriggered="toggleEnrollModal" />
+      <transition name="fade" v-if="show_register_modal">
+        <register-modal @closeTriggered="toggleRegisterModal" />
       </transition>
     </portal>
 
@@ -85,25 +85,25 @@
 
 <script>
 import introVideoModal from '~/components/teacherComps/introVideoModal.vue'
-import EnrollModal from '~/components/teacherComps/enrollModal.vue'
+import RegisterModal from '~/components/teacherComps/registerModal.vue'
 export default {
   name: "aboutTheCoure",
   components: {
     introVideoModal,
-    EnrollModal,
+    RegisterModal,
   },
   data() {
     return {
       show_modal: false,
-       show_enroll_modal: false,
+       show_register_modal: false,
     };
   },
   methods: {
     toggleModal() {
       this.show_modal = !this.show_modal;
     },
-    toggleEnrollModal() {
-      this.show_enroll_modal = !this.show_enroll_modal;
+    toggleRegisterModal() {
+      this.show_register_modal = !this.show_register_modal;
     },
   },
 };

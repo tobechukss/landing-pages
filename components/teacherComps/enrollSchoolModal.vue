@@ -1,24 +1,23 @@
 <template>
 <div>
-
-  <modal-cover
+    <modal-cover
     @closeModal="$emit('closeTriggered')"
     :show_close_btn="true"
     :modal_style="modal_style"
-    v-if="show_enroll_modal"
+    v-if="show_enroll_school_modal"
   >
     <!-- MODAL HEADER  -->
     <template slot="modal-cover-header"></template>
 
     <!-- MODAL BODY  -->
     <template slot="modal-cover-body">
-      <div class="modal-cover-body">
+      <div class="modal-cover-body mgb-30">
         <div class="video-block w-100 h-100">
             <div class="font-weight-600 brand-tonic text-center m-auto mgt-30">
                 One more Step
             </div>
-         <div class="title brand-navy text-center m-auto mgb-30">
-             Enroll as a Teacher to Continue.
+         <div class="title brand-navy text-center m-auto">
+          Enroll as a School to Continue.
          </div>
           <div class="form">
             <form>
@@ -66,11 +65,36 @@
                 />
               </div>
 
-     
-
-       
 
               <div class="form-group">
+                <label
+                  class="form-title control-label text-uppercase font-weight-700 mgb-5"
+                >
+                  Role in School
+                </label>
+                <select v-model="selected" class="form-control" >
+                  <option v-for="option in options" v-bind:key="option.value" >
+                    {{ option.text }}
+                  </option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label
+                  class="form-title control-label text-uppercase font-weight-700 mgb-5"
+                >
+                  Number of teachers
+                </label>
+                <input
+                  type="text"
+                  v-model="form.number_enrolling"
+                  required
+                  class="form-control"
+                  placeholder="Enter the number of teachers you’re enrolling"
+                />
+              </div>
+
+               <div class="form-group">
                 <label
                   class="form-title control-label text-uppercase font-weight-700 mgb-5"
                 >
@@ -85,19 +109,17 @@
                 />
               </div>
 
-            
 
-              <button :disabled="isDisabled" class="btn btn-accent m-auto"  @click="toggleSuccessModal"
+              <button :disabled="isDisabled" class="btn btn-accent m-auto "  @click="toggleSuccessModal"
             >Submit</button>
             </form>
 
           </div>
         </div>
-      
+       
 
 
       </div>
-       
     </template>
 
     <!-- MODAL FOOTER  -->
@@ -109,7 +131,6 @@
         <success-modal @closeTriggered="toggleSuccessModal" />
       </transition>
     </portal>
-
 </div>
   
 </template>
@@ -118,7 +139,7 @@
 import modalCover from "~/components/teacherComps/modalCover";
 import successModal from '~/components/teacherComps/successModal'
 export default {
-  name: "enrollModal",
+  name: "enrollSchoolModal",
   components: {
     modalCover,
     successModal,
@@ -126,24 +147,29 @@ export default {
   },
     computed: {
     isDisabled() {
-      if (this.form.email && this.form.school && this.form.phone && this.form.name) return false;
+      if (this.form.email && this.form.school && this.form.number_enrolling && this.form.phone && this.form.name) return false;
       else return true;
     },
   },
    data() {
     return {
        show_success_modal: false,
-       show_enroll_modal: true,
+       show_enroll_school_modal: true,
   
-         password: "",
-      passwordFieldType: "password",
       form: {
         name:"",
         phone:"",
         email: "",
+        number_enrolling: "",
         school: ""
       },
-    
+      selected: "A",
+      options: [
+        { text: "Teacher", value: "A" },
+        { text: "Vice Principal", value: "B" },
+        { text: "Principal", value: "C" },
+        { text: "Other", value: "D" }
+      ],
       modal_style: {
         shape: "rounded-7",
         size: "modal-sm-md-init",
@@ -153,10 +179,10 @@ export default {
   },
   
     methods: {
-    
+      
      toggleSuccessModal() {
       this.show_success_modal = !this.show_success_modal;
-      this.show_enroll_modal = false;
+      this.show_enroll_school_modal = false;
      
      }
     },
@@ -173,8 +199,6 @@ export default {
     max-height: 70vh;
   }
 .form-group {
-
-      
       .password {
         width: 100%;
         display: flex;
