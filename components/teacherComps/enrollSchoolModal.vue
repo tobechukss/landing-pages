@@ -20,7 +20,7 @@
           Enroll as a School to Continue.
          </div>
           <div class="form">
-            <form>
+            <form @submit.prevent="handleUserSignup">
               <div class="form-group">
                 <label
                   class="form-title control-label text-uppercase font-weight-700 mgb-5"
@@ -72,8 +72,8 @@
                 >
                   Role in School
                 </label>
-                <select v-model="selected" class="form-control" >
-                  <option v-for="option in options" v-bind:key="option.value" >
+                <select v-model="form.role" class="form-control" >
+                  <option v-for="option in form.options" v-bind:key="option.value" >
                     {{ option.text }}
                   </option>
                 </select>
@@ -87,7 +87,7 @@
                 </label>
                 <input
                   type="text"
-                  v-model="form.number_enrolling"
+                  v-model="form.teacher_count"
                   required
                   class="form-control"
                   placeholder="Enter the number of teachers you’re enrolling"
@@ -102,7 +102,7 @@
                 </label>
                 <input
                   type="text"
-                  v-model="form.school"
+                  v-model="form.school_name"
                   required
                   class="form-control"
                   placeholder="Enter the name of your school"
@@ -110,7 +110,7 @@
               </div>
 
 
-              <button :disabled="isDisabled" class="btn btn-accent m-auto "  @click="toggleSuccessModal"
+              <button :disabled="isDisabled" class="btn btn-accent m-auto "  
             >Submit</button>
             </form>
 
@@ -138,6 +138,7 @@
 <script>
 import modalCover from "~/components/teacherComps/modalCover";
 import successModal from '~/components/teacherComps/successModal'
+import { mapActions } from "vuex";
 export default {
   name: "enrollSchoolModal",
   components: {
@@ -147,7 +148,7 @@ export default {
   },
     computed: {
     isDisabled() {
-      if (this.form.email && this.form.school && this.form.number_enrolling && this.form.phone && this.form.name) return false;
+      if (this.form.email && this.form.school_name && this.form.teacher_count && this.form.phone && this.form.name && this.form.role) return false;
       else return true;
     },
   },
@@ -160,16 +161,17 @@ export default {
         name:"",
         phone:"",
         email: "",
-        number_enrolling: "",
-        school: ""
-      },
-      selected: "A",
+        teacher_count: "",
+        school_name: "",
+         role: "A",
       options: [
         { text: "Teacher", value: "A" },
         { text: "Vice Principal", value: "B" },
         { text: "Principal", value: "C" },
         { text: "Other", value: "D" }
-      ],
+      ]
+      },
+     
       modal_style: {
         shape: "rounded-7",
         size: "modal-sm-md-init",
@@ -179,7 +181,18 @@ export default {
   },
   
     methods: {
-      
+     ...mapActions({
+      signupUser: "auth/signupUser"
+    }),
+
+     handleUserSignup() {
+      this.signupUser({ data: this.form, account: "school" })
+        .then(response => {
+          console.log(response);
+          this.toggleSuccessModal();
+        })
+        .catch(err => console.log(err));
+    },
      toggleSuccessModal() {
       this.show_success_modal = !this.show_success_modal;
       this.show_enroll_school_modal = false;

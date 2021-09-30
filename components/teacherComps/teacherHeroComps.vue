@@ -244,7 +244,7 @@ export default {
       position: relative;
       height: 100%;
       width: 70%;
-      top: toRem(60);
+      top: toRem(10);
 
       @include breakpoint-down(sm) {
         width: 100%;

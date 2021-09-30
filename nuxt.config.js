@@ -1,3 +1,4 @@
+let development = process.env.NODE_ENV !== 'production'
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
@@ -54,7 +55,13 @@ export default {
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
-  axios: {},
+  axios: {
+    baseURL: development? 'https://testapi.gradely.ng/v2/': 'https://api.gradely.ng/v2/'
+  },
+
+  env: {
+    // baseUrl: process.env.BASE_URL || 'https://localhost:3000'
+  },
 
 
 
