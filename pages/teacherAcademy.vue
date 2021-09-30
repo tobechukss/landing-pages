@@ -29,6 +29,18 @@ import FooterColumn from '~/components/teacherComps/footerColumn.vue'
 import EnrollModal from '~/components/teacherComps/enrollModal.vue'
 
 export default {
+        head() {
+        return {
+            title: 'Gradely Teacher Academy',
+            meta: [
+                {
+                    hid: "Teacher Academy",
+                    name: "Teacher Academy",
+                    content: "Teacher Academy"
+                }
+            ]
+        }
+    },
   components: { aboutTheCourse, LearningGoals, CourseWorks, Facilitators, accessTheApp, Contact, faqRow, FooterColumn,  EnrollModal },
    
 

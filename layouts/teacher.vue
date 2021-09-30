@@ -1,7 +1,7 @@
 <template>
 <div class="teacher">
   <teacherNav/>
-  <teacherProgram />
+  <teacherAcademy />
   <footer/>
  
   </div>
@@ -9,7 +9,8 @@
 
 <script>
 
-import teacherProgram from '~/pages/teacher-program.vue'
+
+import teacherAcademy from '~/pages/teacherAcademy.vue'
 
 export default {
 
@@ -19,7 +20,7 @@ export default {
     },
 
   components: { 
-      teacherProgram,
+      teacherAcademy,
       
       },
   
