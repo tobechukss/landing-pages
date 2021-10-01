@@ -1,5 +1,11 @@
 let development = process.env.NODE_ENV !== 'production'
 export default {
+
+  // Base route to loa the app
+  router: {
+    base: '/page/'
+  },
+
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'landing-pages',
