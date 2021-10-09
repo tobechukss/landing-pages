@@ -6,7 +6,7 @@
     <div class="gradely-container px-3 mx-auto position-relative">
       <div class="foot text-content h-100">
         <img
-           v-lazy="require('@/assets/static/logoMark.svg')"
+          v-lazy="require('@/assets/static/logoMark.svg')"
           alt="Gradely"
           class="avatar-square"
         />
@@ -50,12 +50,57 @@
         </div>
 
         <div class="service-list">
-          <div class="footer-title">Support</div>
-          <a href="mailto:support@gradely.ng"><div>support@gradely.ng</div></a>
-          <a href="https://wa.link/ydy5yo"><div>(+234) 810 059 8268</div></a>
+          <div class="footer-title"> Support</div>
+          <a href=""><div><img
+            v-lazy="require('@/assets/static/call.svg')"
+            alt=""
+            class="avatar-sm"
+          /> (+234) 810 059 8268</div></a>
+          <a href="mailto:support@gradely.ng"><div><img
+            v-lazy="require('@/assets/static/mail.svg')"
+            alt=""
+            class="avatar-sm"
+          /> support@gradely.ng</div></a>
+          <a href="https://wa.link/ydy5yo"><div> <img
+            v-lazy="require('@/assets/static/whatsappIcon.svg')"
+            alt=""
+            class="avatar-sm"
+          /> +234) 810 059 8268</div></a>
+    
           <a href="https://gradely.ng/help-centre/"
-            ><div>Visit Help center</div></a
+            ><div> <img
+            v-lazy="require('@/assets/static/question.svg')"
+            alt=""
+            class="avatar-sm"
+          /> Visit Help center</div></a
           >
+          <div class="mgt-25 d-flex justify-content-between"><img
+            v-lazy="require('@/assets/static/facebook.svg')"
+            alt=""
+            class="avatar-square"
+          />
+          <img
+            v-lazy="require('@/assets/static/IG.svg')"
+            alt=""
+            class="avatar-square"
+          />
+          <img
+            v-lazy="require('@/assets/static/Twitter.svg')"
+            alt=""
+            class="avatar-square"
+          />
+          <img
+            v-lazy="require('@/assets/static/youtube.svg')"
+            alt=""
+            class="avatar-square"
+          />
+          <img
+            v-lazy="require('@/assets/static/LinkedIn.svg')"
+            alt=""
+            class="avatar-square"
+          />
+          
+          </div>
         </div>
       </div>
 
@@ -74,7 +119,7 @@
 
 <script>
 export default {
-  name: "footerSection",
+  name: "footerSection"
 };
 </script>
 

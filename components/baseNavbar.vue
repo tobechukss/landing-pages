@@ -1,5 +1,5 @@
 <template>
-  <div class="base-navbar h-auto white-text-bg box-shadow-effect">
+  <div class="base-navbar h-auto  box-shadow-effect">
     <div class="gradely-container px-3 mx-auto pdy-10">
       <!-- IMAGE BLOCK  -->
       <div class="image-block">
@@ -41,7 +41,7 @@
         
 
         <!-- LOGIN BUTTON -->
-        <a  class="btn btn-accent">
+        <a href="https://app.gradely.ng/login" class="btn btn-accent">
           Log In
         </a>
 
@@ -49,7 +49,7 @@
         <div
           @click="toggleMobileBlock"
         
-          class="menu-icon font-weight-500 pointer"
+          class="menu-icon font-weight-500 pointer color-text"
           :class="show_mobile_block ? closeStyle : 'icon-hamburger'"
         ></div>
       </div>
@@ -71,7 +71,7 @@
         >
           More
           <span
-            class="icon icon-caret-down position-relative gfont-13 mgl-10 color-ash"
+            class="icon icon-caret-down position-relative gfont-13 mgl-10 brand-accent-light"
             style="top: 0.5px"
           ></span>
 
@@ -98,10 +98,16 @@
 <script>
 
 export default {
-  name: "baseNavbar",
+  name: "naseNavbar",
 
+   computed: {
+    closeStyle() {
+      return "icon-decline font-weight-500 brand-red";
+    },
 
+  },
 
+   
 
   data() {
     return {
@@ -142,6 +148,7 @@ export default {
 .base-navbar {
   @include fixed-display-area;
   z-index: 999;
+  background-color: $color-white;
 
   .gradely-container {
     @include flex-row-between-nowrap;
@@ -169,13 +176,13 @@ export default {
           position: relative;
           @include font-height(13, 18);
           cursor: pointer;
-          color: $color_ash;
+          color: $color-text;
           font-weight: 600;
           padding: 0 toRem(20);
 
           .icon {
             @include center-y;
-            color: $color-ash;
+            color: $color-text;
             font-weight: 500;
             margin-top: toRem(1);
             font-size: toRem(10);

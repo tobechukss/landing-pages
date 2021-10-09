@@ -19,7 +19,14 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.svg' },
+      { rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Volkhov: wght@400; 700&display=swap'
+      },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap'
+      }
     ]
   },
 
@@ -31,6 +38,7 @@ export default {
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     {src: '~/plugins/vue-lazyload', ssr:false},
+
   
   ],
 
