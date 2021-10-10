@@ -26,19 +26,23 @@ export default {
       {
         rel: 'stylesheet',
         href: 'https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap'
-      }
-    ]
+      },
+    ],
+    
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '~/node_modules/gradely_asset_store/dist/css/app.css'
+    '~/node_modules/gradely_asset_store/dist/css/app.css',
+    
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     {src: '~/plugins/vue-lazyload', ssr:false},
-
+    
+   
+ 
   
   ],
 
@@ -57,7 +61,8 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
 
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    
   ],
 
   styleResources: {
@@ -81,5 +86,6 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    transpile: ['vue-owl-carousel']
   }
 }

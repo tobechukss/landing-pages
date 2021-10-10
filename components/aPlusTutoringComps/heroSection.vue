@@ -23,7 +23,7 @@
         <div class="highlight-text font-weight-700 brand-tonic text-uppercase mgt-14">
           Any subject. Anytime. 
         </div>
-        <button class="book btn btn-accent text-capitalize mgt-30">Book a Free Session</button>
+        <button class="book btn btn-accent text-capitalize mgt-30" @click="toggleModal">Book a Free Session</button>
       </div>
 
       <div class="right-side">
@@ -33,7 +33,7 @@
         />
       </div>
       <div class="booking">
-        <button class=" btn btn-accent text-capitalize">Book a Free Session</button>
+        <button class=" btn btn-accent text-capitalize" @click="toggleModal">Book a Free Session</button>
       </div>
       
 
@@ -43,12 +43,34 @@
     
    
     </div>
+    <portal to="gradely-modals">
+      <transition name="fade" v-if="show_modal">
+        <tutor-free-session-modal @closeTriggered="toggleModal" />
+      </transition>
+    </portal>
 
   </div>
 </template>
 
 <script>
-export default {};
+import tutorFreeSessionModal from '~/components/modals/tutorFreeSessionModal'
+
+export default {
+  data() {
+    return {
+      show_modal: false
+    };
+    
+  },
+  components: {
+    tutorFreeSessionModal
+  },
+  methods: {
+    toggleModal() {
+      this.show_modal = !this.show_modal;
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>

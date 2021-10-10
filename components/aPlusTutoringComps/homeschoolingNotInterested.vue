@@ -64,7 +64,7 @@ export default {
           checkone: "Minimum of 2 classes per week",
           checktwo: " Weekly improvement reports ",
           checkthree: "Biweekly tests and monthly exams",
-          href: ""
+          href: "tutoring/one-on-one"
         },
         {
           title: "Exam Preparation Lessons",
@@ -74,7 +74,7 @@ export default {
           checkone: "Minimum of 2 classes per week",
           checktwo: " Weekly improvement reports ",
           checkthree: "Biweekly tests and monthly exams",
-          href: ""
+          href: "tutoring/exam-preparation"
         },
 
         {
@@ -85,7 +85,7 @@ export default {
           checkone: "Minimum of 1 class per week",
           checktwo: "Monthly tests",
           checkthree: "Bi-monthly Projects",
-          href: ""
+          href: "tutoring/extra-curricular"
         }
       ]
     };

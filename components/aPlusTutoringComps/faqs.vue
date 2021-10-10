@@ -107,7 +107,8 @@ methods: {
       width: 90%;
     }
     .title {
-      @include font-height(48, 61);
+      @include font-height(42, 61);
+      font-family: "Volkhov", serif;
       @include breakpoint-down(md) {
            
              @include font-height(28, 36);
@@ -133,7 +134,7 @@ methods: {
         padding-top: toRem(30);
         padding-bottom: toRem(10);
         margin-bottom: 0;
-        @include font-height(24, 32);
+        @include font-height(18, 32);
         border-top: toRem(1) solid #dbf5f8;
         padding-left: toRem(60);
         @include breakpoint-down(md) {
@@ -151,7 +152,7 @@ methods: {
         }
       }
       .answer {
-        @include font-height(16, 26);
+        @include font-height(14, 26);
         border-bottom: toRem(1) solid #dbf5f8;
         padding-bottom: toRem(30);
         padding-left: toRem(60);

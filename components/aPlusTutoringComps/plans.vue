@@ -70,7 +70,7 @@ export default {
           title: "1-on-1 Tutoring ",
           description:
             "Private lessons focused on your child’s specific academic needs and goals.",
-        href: 'https://app.gradely.com',
+        href: 'tutoring/one-on-one',
         styles: " background-color: #ffffff ",
           checks: [
               "Minimum of 2 classes per week", 
@@ -83,7 +83,7 @@ export default {
           title: "Exam Preparation Lessons ",
           description:
             "Group & private tutoring lessons focused on your child’s specific academic or test prep needs and goals.",
-            href: 'https://app.gradely.com',
+            href: 'tutoring/exam-preparation',
             styles: "background-color: #ffffff",
           checks: [
               "Minimum of 2 classes per week", 
@@ -96,7 +96,7 @@ export default {
           title: "Homeschooling Lessons ",
           description:
             "Private homeschooling lessons focused on your child’s specific academic or test prep needs and goals.",
-            href: 'https://app.gradely.com',
+            href: 'tutoring/home-schooling',
             styles: " background-color: #fceacf",
           checks: [
               "Minimum of 3 classes per week", 
@@ -109,7 +109,7 @@ export default {
           title: "Extra-curricular Lessons",
           description:
             "Group & private lessons designed to teach your child skills relevant  to their development level.",
-            href: 'https://app.gradely.com',
+            href: 'tutoring/extra-curricular',
             styles: " background-color: #ffffff",
           checks: [
               "Minimum of 1 class per week", 

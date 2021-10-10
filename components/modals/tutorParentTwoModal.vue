@@ -12,7 +12,7 @@
       <div class="modal-cover-body">
         <div class="video-block w-100 h-100">
           <iframe
-            src="https://www.youtube.com/embed/reNRXOxChl8"
+            src="https://www.youtube.com/embed/EWftcHly-HQ"
             title="Gradely A Plus Tutoring"
             frameborder="0"
             class="w-100 h-100"
@@ -22,7 +22,6 @@
         </div>
       </div>
     </template>
-    
 
     <!-- MODAL FOOTER  -->
     <template slot="modal-cover-footer"> </template>
@@ -33,7 +32,7 @@
 import modalSetting from '~/components/modals/modalSetting'
 
 export default {
-  name: "aPlusVideoModal",
+  name: "",
 
   components: {
    modalSetting

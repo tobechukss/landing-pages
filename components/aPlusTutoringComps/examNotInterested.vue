@@ -71,7 +71,7 @@ export default {
                     checkone: "Minimum of 2 classes per week",
                     checktwo:" Weekly improvement reports ",
                     checkthree: "Biweekly tests and monthly exams",
-                    href: ""
+                    href: "tutoring/one-on-one"
                 },
                 {
                     title: "Homeschooling Lessons",
@@ -80,7 +80,7 @@ export default {
                     checkone: "Minimum of 3 classes per week",
                     checktwo:"Weekly improvement reports ",
                     checkthree: "Monthly tests and termly exams",
-                    href: ""
+                    href: "tutoring/home-schooling"
                 },
                 {
                      title: "Extra-curricular Lessons",
@@ -89,7 +89,7 @@ export default {
                     checkone: "Minimum of 1 class per week",
                     checktwo:"Monthly tests",
                     checkthree: "Bi-monthly Projects",
-                    href: ""
+                    href: "tutoring/extra-curricular"
                 }
             ]
         }

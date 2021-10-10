@@ -43,14 +43,14 @@
           "
         >
           <img
-            v-lazy="require('@/assets/static/firstParent.svg')"
+            v-lazy="require('@/assets/static/ademiju.svg')"
             class="video-uno"
             alt=""
           />
-          <button class="play btn btn-whitish" :disabled="isClicked"   @click="toggleVideoModal">
+          <button class="play btn btn-whitish" :disabled="isClicked"   @click="toggleParentOneModal">
             Play Video <span class="icon-play-bg brand-accent mgl-10"></span>
           </button>
-          <div class="responsive-play" :disabled="isClicked"   @click="toggleVideoModal">
+          <div class="responsive-play" :disabled="isClicked"   @click="toggleParentOneModal">
             <span class="icon-play-bg brand-accent"></span>
           </div>
         </div>
@@ -68,14 +68,14 @@
           "
         >
           <img
-            v-lazy="require('@/assets/static/firstParent.svg')"
+            v-lazy="require('@/assets/static/emmanuel.svg')"
             class="video-uno"
             alt=""
           />
-          <button class="play btn btn-whitish" :disabled=" isParentTwoClicked"   @click="toggleVideoModal">
+          <button class="play btn btn-whitish" :disabled=" isParentTwoClicked"   @click="toggleParentTwoModal">
             Play Video <span class="icon-play-bg brand-accent mgl-10"></span>
           </button>
-          <div class="responsive-play"   @click="toggleVideoModal">
+          <div class="responsive-play"   @click="toggleParentTwoModal">
             <span class="icon-play-bg brand-accent"></span>
           </div>
         </div>
@@ -93,15 +93,15 @@
           "
         >
           <img
-            v-lazy="require('@/assets/static/firstParent.svg')"
+            v-lazy="require('@/assets/static/maida.svg')"
             class="video-uno"
             alt=""
           />
 
-          <button class="play btn btn-whitish" :disabled="isParentThreeClicked"   @click="toggleVideoModal">
+          <button class="play btn btn-whitish" :disabled="isParentThreeClicked"   @click="toggleChildOneModal">
             Play Video <span class="icon-play-bg brand-accent mgl-10"></span>
           </button>
-          <div class="responsive-play"   @click="toggleVideoModal">
+          <div class="responsive-play"   @click="toggleChildOneModal">
             <span class="icon-play-bg brand-accent"></span>
           </div>
         </div>
@@ -117,23 +117,52 @@
         <tutor-a-plusmodal @closeTriggered="toggleVideoModal" />
       </transition>
     </portal>
+
+  <portal to="gradely-modals">
+      <transition name="fade" v-if="show_parent_one_modal">
+    <tutor-parent-one-modal @closeTriggered="toggleParentOneModal"/>
+     </transition>
+    </portal>
+
+     <portal to="gradely-modals">
+      <transition name="fade" v-if="show_parent_two_modal">
+    <tutor-parent-two-modal @closeTriggered="toggleParentTwoModal"/>
+     </transition>
+    </portal>
+  <portal to="gradely-modals">
+      <transition name="fade" v-if="show_child_one_modal">
+    <tutor-child-one-modal @closeTriggered="toggleChildOneModal"/>
+     </transition>
+    </portal>
+    
   </div>
 </template>
 <script>
 import tutorAPlusmodal from "~/components/modals/tutorAPlusmodal";
+import TutorParentOneModal from '~/components/modals/tutorParentOneModal';
+import TutorParentTwoModal from '~/components/modals/tutorParentTwoModal';
+import TutorChildOneModal from '~/components/modals/tutorChildOneModal';
+
+
 export default {
     components: {
-    tutorAPlusmodal
+    tutorAPlusmodal,
+    TutorParentOneModal,
+    TutorParentTwoModal,
+    TutorChildOneModal
   },
   data() {
     return {
       isClicked: false,
       isParentTwoClicked: true,
       isParentThreeClicked: true,
-      message: "Somthinggggggggggg",
-      name: "My Name",
-      title: "Omoge",
-      show_video_modal: false
+      message: "Ever since she’s been on Gradely, my daughter would say “I’m a mathematician”. Gradely will work with you to your own convenience and comfort. That’s why I’m always recommending!",
+      name: "Mrs Ademiju",
+      title: "Parent",
+      show_video_modal: false,
+      show_parent_one_modal: false,
+      show_parent_two_modal: false,
+      show_child_one_modal: false
     
     };
   },
@@ -141,29 +170,38 @@ export default {
     toggleIsClicked() {
       this.isClicked = false;
       this.isParentTwoClicked = true;
-      (this.isParentThreeClicked = true), (this.message = "Somthinggggggggggg");
-      this.name = "My Name";
-      this.title = "Omoge";
+      (this.isParentThreeClicked = true), (this.message = "Ever since she’s been on Gradely, my daughter would say “I’m a mathematician”. Gradely will work with you to your own convenience and comfort. That’s why I’m always recommending!");
+      this.name = "Mrs Ademiju";
+      this.title = "Parent";
     },
     toggleIsParentTwoClicked() {
       this.isClicked = true;
       this.isParentTwoClicked = false;
       (this.isParentThreeClicked = true),
-        (this.message = "Somthinggggggggggg elsee");
-      this.name = "My Name";
-      this.title = "Omoge";
+        (this.message = "In the very first few days that they interacted with their online tutor, you could see the relief and sheer enthusiasm they had, wanting to log on to their classes. Even when I’m not present with them, they’re always so happy to go on their classes. That has, and will always be a big plus for their mom and I.");
+      this.name = "Mr Emmanuel Kalu";
+      this.title = "Parent";
     },
     toggleIsParentThreeClicked() {
       this.isClicked = true;
       this.isParentTwoClicked = true;
       (this.isParentThreeClicked = false),
-        (this.message = "Somthinggggggggggg elsee againnn");
-      this.name = "My Name";
-      this.title = "Omoge";
+        (this.message = "With other online learning platforms, they don’t ask for what you need help with, or don’t know. They just start from addition, to subtraction, and then multiplication, without bothering to know if you understand. Gradely helped to change that and that’s why my favorite subject is now Math!");
+      this.name = "Maida";
+      this.title = "7 Year Old Student";
     },
     toggleVideoModal() {
       this.show_video_modal = !this.show_video_modal;
-    }
+    },
+    toggleParentOneModal() {
+      this.show_parent_one_modal = !this.show_parent_one_modal;
+    },
+    toggleParentTwoModal() {
+      this.show_parent_two_modal = !this.show_parent_two_modal;
+    },
+    toggleChildOneModal() {
+      this.show_child_one_modal = !this.show_child_one_modal;
+    },
   }
 };
 </script>
@@ -204,10 +242,14 @@ export default {
       .parent-testimonial {
         max-width: toRem(350);
         @include font-height(21, 34);
-        height: toRem(170);
+        height: toRem(350);
 
         @include breakpoint-down(md) {
-          @include font-height(28, 46);
+          @include font-height(24, 44);
+           height: toRem(550);
+        }
+        @include breakpoint-down(sm) {
+           height: toRem(650);
         }
       }
       .parent-name {
