@@ -35,7 +35,7 @@
 
       </div>
       <div class="booking">
-          <button class="btn btn-accent text-capitalize m-auto">Book a Free Session </button>
+          <button class="btn btn-accent text-capitalize m-auto"  @click="toggleModal">Book a Free Session </button>
       </div>
     
     </div>
@@ -45,22 +45,34 @@
         <tutor-a-plusmodal @closeTriggered="toggleVideoModal" />
       </transition>
     </portal>
+     <portal to="gradely-modals">
+      <transition name="fade" v-if="show_modal">
+        <tutor-free-session-modal @closeTriggered="toggleModal" />
+      </transition>
+    </portal>
+
   </div>
 </template>
 <script>
 import tutorAPlusmodal from "~/components/modals/tutorAPlusmodal";
+import tutorFreeSessionModal from '~/components/modals/tutorFreeSessionModal'
 export default {
   components: {
-    tutorAPlusmodal
+    tutorAPlusmodal,
+     tutorFreeSessionModal
   },
   data() {
     return {
-      show_video_modal: false
+      show_video_modal: false,
+       show_modal: false
     };
   },
   methods: {
     toggleVideoModal() {
       this.show_video_modal = !this.show_video_modal;
+    },
+      toggleModal() {
+      this.show_modal = !this.show_modal;
     }
   }
 };

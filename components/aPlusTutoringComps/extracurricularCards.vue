@@ -51,7 +51,7 @@
           ₦25,000
         </div>
        
-            <button class="btn btn-secondary mgb-30 mgt-15 brand-accent-light-bg">
+            <button class="btn btn-secondary mgb-30 mgt-15 brand-accent-light-bg" >
          1-on-1 Classes
         </button>
       

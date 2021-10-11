@@ -27,14 +27,21 @@
           </div>
         </div>
       </div>
-      <button class="btn btn-accent mgt-30 m-auto text-capitalize">Book a Free Session</button>
+      <button class="btn btn-accent mgt-30 m-auto text-capitalize" @click="toggleModal">Book a Free Session</button>
     </div>
+       <portal to="gradely-modals">
+      <transition name="fade" v-if="show_modal">
+        <tutor-free-session-modal @closeTriggered="toggleModal" />
+      </transition>
+    </portal>
   </div>
 </template>
 <script>
+import tutorFreeSessionModal from '~/components/modals/tutorFreeSessionModal'
 export default {
   data() {
     return {
+       show_modal: false,
         tutors: [
             {
                 name: 'Azubike Ani',
@@ -64,10 +71,17 @@ export default {
         ]
     };
   },
+   components: {
+   
+     tutorFreeSessionModal
+  },
    methods: {
       staticImg(src) {
         return require(`@/assets/static/${src}`);
       },
+      toggleModal() {
+      this.show_modal = !this.show_modal;
+    }
    }
 };
 </script>
